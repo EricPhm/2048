@@ -1,0 +1,190 @@
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url(./assets/amy-humphries-2M_sDJ_agvs-unsplash.jpg);
+    background-size: cover;
+    overflow: hidden;
+}
+
+.Header{
+    text-align: center;
+    color: rgb(220, 235, 245);
+    /* background-color: bisque; */
+    border-radius: 30px;
+    border: 2px solid transparent;
+    margin: auto 25rem;
+    
+}
+
+.hr {
+    width: 400px;
+    display: flex;
+}
+
+/* TODO: fix screen size adjust */
+/* For monitor screen */
+/* @media (max-width: 1366px) {
+    .restart_game {
+        position: absolute; 
+        width: 100%;
+        display: flex; 
+        justify-content: center; This is center
+        margin-top: 25px;
+        on top of game_over and board
+        z-index: 3;
+    }
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45vh; Adjust height
+    }    
+} */
+
+/* For laptop screen */
+/* @media (min-width: 1500px) { 
+    .restart_game {
+        position: absolute; 
+        width: 100%;
+        display: flex;
+        justify-content: center; This is center
+        margin-top: 20px;
+        on top of game_over and board
+        z-index: 3;
+    }
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;  Adjust height
+    }    
+} */
+
+
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36vh; /*Adjust height*/
+}   
+.board,
+.game_over {
+    /* width: 398.4px; */
+    width: 400px;
+    height: 400px;
+    position: absolute;
+}
+.board {
+    background-color: rgb(220, 235, 245);
+    border: 5px solid rgb(84, 147, 150);
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1; /*Set a lower z-index value*/
+}
+/* cover the board */
+.game_over {
+    justify-content: center;
+    background-color:rgb(220, 235, 245, 0.5); /* Overlay square color with transparency */
+    display: none; /*initially hidden*/
+    z-index: 2;
+}
+.game_over p{
+    color: rgba(0, 3, 5, 0.5);
+    text-align: center;
+    font-size: 32px; /* Set the font size */
+    font-weight: bold;
+    margin: 42px; /* Remove any default margin */
+    padding: 20px; /* Add some padding for spacing */
+    z-index: 2;
+}
+
+.tile {
+    /* because 5px for border each side */
+    height: 90px; 
+    width: 90px;
+    /* text-align: ; */
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center; /*Center horizontally*/
+    align-items: center; /*center vertically*/
+    border: 5px solid rgb(84, 147, 150);
+}
+
+.restart_game {
+    position: absolute; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* This is center*/
+    margin-top: 40px;
+    /* on top of game_over and board  */
+    z-index: 3;
+}
+
+.restart_game button {
+    border: 0;
+    outline: 0;
+    outline: 0.5rem solid rgb(84, 147, 150);
+    /* background: linear-gradient(135deg, #e7e7e7, rgb(84, 81, 104)); */
+    background: rgb(220, 235, 245);
+    border-radius: 30%;
+    width: 120px;
+    height: 60px;
+    cursor: pointer
+}
+
+
+.x2 {
+    background-color: #d4a87c;
+    color: aliceblue;
+}
+.x4 {
+    background-color: #9e8a68;
+    color: aliceblue;
+}
+.x8{
+    background-color: #e28d39;
+    color: aliceblue;
+}
+.x16{
+    background-color: #6a8105;
+    color: aliceblue;
+}
+.x32{
+    background-color: #97c002;
+    color: aliceblue;
+}
+.x64{
+    background-color: #227ebb;
+    color: aliceblue;
+}
+.x128{
+    background-color: #30b0eb;
+    color: aliceblue;
+}
+.x256{
+    background-color: #3c24a7;
+    color: aliceblue;
+}
+.x512{
+    background-color: #614ac9;
+    color: aliceblue;
+}
+.x1024{
+    background-color: #8e39f0;
+    color: aliceblue;
+}
+.x2048{
+    background-color: #998a8aa4;
+    color: aliceblue;
+}
+.x4096{
+    background-color: #434749;
+    color: aliceblue;
+}
