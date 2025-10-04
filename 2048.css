@@ -1,112 +1,99 @@
+/* === GLOBAL === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
 
 body {
     width: 100vw;
     height: 100vh;
-    background: url(./assets/amy-humphries-2M_sDJ_agvs-unsplash.jpg);
-    background-size: cover;
+    background: url(./assets/amy-humphries-2M_sDJ_agvs-unsplash.jpg)
+        center/cover no-repeat;
     overflow: hidden;
-}
-
-.Header{
-    text-align: center;
-    color: rgb(220, 235, 245);
-    /* background-color: bisque; */
-    border-radius: 30px;
-    border: 2px solid transparent;
-    margin: auto 25rem;
-    
-}
-
-.hr {
-    width: 400px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgb(220, 235, 245);
 }
 
-/* TODO: fix screen size adjust */
-/* For monitor screen */
-/* @media (max-width: 1366px) {
-    .restart_game {
-        position: absolute; 
-        width: 100%;
-        display: flex; 
-        justify-content: center; This is center
-        margin-top: 25px;
-        on top of game_over and board
-        z-index: 3;
-    }
-    .container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 45vh; Adjust height
-    }    
-} */
+.Header {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    border: 2px solid rgba(220, 235, 245, 0.3);
+    backdrop-filter: blur(6px);
+}
 
-/* For laptop screen */
-/* @media (min-width: 1500px) { 
-    .restart_game {
-        position: absolute; 
-        width: 100%;
-        display: flex;
-        justify-content: center; This is center
-        margin-top: 20px;
-        on top of game_over and board
-        z-index: 3;
-    }
-    .container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 60vh;  Adjust height
-    }    
-} */
+.Header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
 
+.Header h2 {
+    font-size: 1.5rem;
+}
 
+.Header hr {
+    width: 60%;
+    margin: 0.5rem auto;
+    border: none;
+    border-top: 2px solid rgba(220, 235, 245, 0.3);
+}
 
 .container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 36vh; /*Adjust height*/
-}   
-.board,
-.game_over {
-    /* width: 398.4px; */
+    height: auto;
+}
+
+.board {
     width: 400px;
     height: 400px;
-    position: absolute;
-}
-.board {
     background-color: rgb(220, 235, 245);
     border: 5px solid rgb(84, 147, 150);
     display: flex;
     flex-wrap: wrap;
-    z-index: 1; /*Set a lower z-index value*/
+    border-radius: 10px;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
 /* cover the board */
 .game_over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    display: none;
+    flex-direction: column;
     justify-content: center;
-    background-color:rgb(220, 235, 245, 0.5); /* Overlay square color with transparency */
-    display: none; /*initially hidden*/
+    align-items: center;
+    background-color: rgba(220, 235, 245, 0.85);
+    border-radius: 10px;
     z-index: 2;
-}
-.game_over p{
-    color: rgba(0, 3, 5, 0.5);
     text-align: center;
-    font-size: 32px; /* Set the font size */
+    animation: fadeIn 0.5s ease;
+}
+
+.game_over p {
+    color: rgba(0, 3, 5, 0.8);
+    font-size: 1.8rem;
     font-weight: bold;
-    margin: 42px; /* Remove any default margin */
-    padding: 20px; /* Add some padding for spacing */
-    z-index: 2;
+    margin: 10px 0;
 }
 
 .tile {
     /* because 5px for border each side */
-    height: 90px; 
-    width: 90px;
+    height: 97.6px;
+    width: 97.6px;
     /* text-align: ; */
     font-size: 40px;
     font-weight: bold;
@@ -114,10 +101,10 @@ body {
     justify-content: center; /*Center horizontally*/
     align-items: center; /*center vertically*/
     border: 5px solid rgb(84, 147, 150);
+    transition: all 0.5s ease;
 }
 
 .restart_game {
-    position: absolute; 
     width: 100%;
     display: flex;
     align-items: center;
@@ -128,17 +115,50 @@ body {
 }
 
 .restart_game button {
-    border: 0;
-    outline: 0;
-    outline: 0.5rem solid rgb(84, 147, 150);
-    /* background: linear-gradient(135deg, #e7e7e7, rgb(84, 81, 104)); */
+    border: none;
     background: rgb(220, 235, 245);
-    border-radius: 30%;
-    width: 120px;
+    outline: 3px solid rgb(84, 147, 150);
+    border-radius: 20px;
+    width: 140px;
     height: 60px;
-    cursor: pointer
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
+.restart_game button:hover {
+    background: rgb(84, 147, 150);
+    color: white;
+}
+
+/* === RESPONSIVENESS === */
+@media (max-width: 768px) {
+    .board,
+    .game_over {
+        width: 300px;
+        height: 300px;
+    }
+
+    .tile {
+        width: 72.6px;
+        height: 72.6px;
+        font-size: 24px;
+    }
+
+    .Header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 .x2 {
     background-color: #d4a87c;
@@ -148,43 +168,43 @@ body {
     background-color: #9e8a68;
     color: aliceblue;
 }
-.x8{
+.x8 {
     background-color: #e28d39;
     color: aliceblue;
 }
-.x16{
+.x16 {
     background-color: #6a8105;
     color: aliceblue;
 }
-.x32{
+.x32 {
     background-color: #97c002;
     color: aliceblue;
 }
-.x64{
+.x64 {
     background-color: #227ebb;
     color: aliceblue;
 }
-.x128{
+.x128 {
     background-color: #30b0eb;
     color: aliceblue;
 }
-.x256{
+.x256 {
     background-color: #3c24a7;
     color: aliceblue;
 }
-.x512{
+.x512 {
     background-color: #614ac9;
     color: aliceblue;
 }
-.x1024{
+.x1024 {
     background-color: #8e39f0;
     color: aliceblue;
 }
-.x2048{
+.x2048 {
     background-color: #998a8aa4;
     color: aliceblue;
 }
-.x4096{
+.x4096 {
     background-color: #434749;
     color: aliceblue;
 }
